@@ -61,7 +61,7 @@ To maintain a high-signal catalog, the following must **never** be added:
 
 Every project in the repository must follow the two-stage linking pattern:
 
-1. **Developer Comparison Matrix (Stage 1):** Internal jump link to `#owner-repo` (`[owner/repo](#owner-repo)`).
+1. **Quick Comparison Matrix (Stage 1):** Internal jump link to `#owner-repo` (`[owner/repo](#owner-repo)`).
 2. **Subcategory Table (Stage 2):** Target anchor `<a id="owner-repo"></a>` followed by the bold link to the upstream repository `[**owner/repo**](https://github.com/owner/repo)`.
 
 ---

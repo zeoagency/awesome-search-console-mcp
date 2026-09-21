@@ -39,7 +39,7 @@ When proposing a new Search Console MCP server or updating an existing listing, 
 
 Every project listed in the repository exists in two places:
 
-1. **Developer Comparison Matrix**: Row entry featuring technical capability columns, with the project name linking internally to `#slug` (e.g. `[owner/repo](#owner-repo)`).
+1. **Quick Comparison Matrix**: Row entry featuring technical capability columns, with the project name linking internally to `#slug` (e.g. `[owner/repo](#owner-repo)`).
 2. **Categorized Detailed Table**: Row entry under the appropriate job category/subcategory featuring an anchor target `<a id="slug"></a>`, the bold project link to upstream GitHub `[**owner/repo**](https://github.com/owner/repo)`, and a curated description.
 
 ### 2. Differentiated Prose Standard
@@ -60,7 +60,7 @@ Every project listed in the repository exists in two places:
 
 1. **Fork the repository** to your personal or organization account.
 2. **Add your project to `README.md`**:
-   - Add a row to the **Developer Comparison Matrix** under Section 9 (sorted alphabetically by repository name), using an internal anchor link `[owner/repo](#owner-repo)`.
+   - Add a row to the **Quick Comparison Matrix** (sorted alphabetically by repository name), using an internal anchor link `[owner/repo](#owner-repo)`.
    - Add a row to the appropriate **Subcategory Table** under Sections 1–8 with `<a id="owner-repo"></a>[**owner/repo**](https://github.com/owner/repo)` and your 1–3 sentence verb-first description.
    - Update the numeric count in the Table of Contents, Section Header, and Subcategory Header to maintain exact arithmetic parity.
 3. **Run local markdown validation**:

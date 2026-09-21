@@ -8,115 +8,112 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ## Contents
 
+- [Quick Comparison Matrix (60)](#quick-comparison-matrix)
+
 1. [Persist and query data locally (9)](#1-persist-and-query-data-locally)
    - [Embedded SQLite data warehouses with sandboxed SQL (4)](#embedded-sqlite-data-warehouses-with-sandboxed-sql)
    - [Local dashboard engines with search analytics persistence (4)](#local-dashboard-engines-with-search-analytics-persistence)
    - [Quota-slot database tracking and batch synchronization (1)](#quota-slot-database-tracking-and-batch-synchronization)
-2. [Manage multi-property and agency access (6)](#2-manage-multi-property-and-agency-access)
-   - [Dynamic multi-account routing and credential isolation (2)](#dynamic-multi-account-routing-and-credential-isolation)
+2. [Manage multi-property and agency access (5)](#2-manage-multi-property-and-agency-access)
+   - [Dynamic multi-account routing and credential isolation (1)](#dynamic-multi-account-routing-and-credential-isolation)
    - [Multi-tenant domain matching and dynamic siteUrl resolution (2)](#multi-tenant-domain-matching-and-dynamic-siteurl-resolution)
    - [Frictionless OAuth 2.0 PKCE browser onboarding (2)](#frictionless-oauth-20-pkce-browser-onboarding)
 3. [Diagnose technical SEO and search algorithms (6)](#3-diagnose-technical-seo-and-search-algorithms)
    - [Keyword cannibalization and content decay diagnostics (2)](#keyword-cannibalization-and-content-decay-diagnostics)
    - [Multi-signal SEO audits with CrUX, IndexNow, and HTML reporting (2)](#multi-signal-seo-audits-with-crux-indexnow-and-html-reporting)
    - [CTR opportunity modeling and GEO attribution analytics (2)](#ctr-opportunity-modeling-and-geo-attribution-analytics)
-4. [Automate indexing and URL lifecycle (5)](#4-automate-indexing-and-url-lifecycle)
+4. [Automate indexing and URL lifecycle (4)](#4-automate-indexing-and-url-lifecycle)
    - [Batch URL inspection and indexing automation (2)](#batch-url-inspection-and-indexing-automation)
    - [Combined search analytics and Indexing API lifecycle (1)](#combined-search-analytics-and-indexing-api-lifecycle)
-   - [Sitemap management and indexing feed inspection (2)](#sitemap-management-and-indexing-feed-inspection)
+   - [Sitemap management and indexing feed inspection (1)](#sitemap-management-and-indexing-feed-inspection)
 5. [Drive agents via CLI and native runtimes (5)](#5-drive-agents-via-cli-and-native-runtimes)
    - [Native compiled binaries with zero-dependency execution (1)](#native-compiled-binaries-with-zero-dependency-execution)
    - [Autonomous agent frameworks with GSC tool integration (1)](#autonomous-agent-frameworks-with-gsc-tool-integration)
    - [Claude Code command packs and skill extensions (3)](#claude-code-command-packs-and-skill-extensions)
-6. [Connect unified marketing stacks (8)](#6-connect-unified-marketing-stacks)
-   - [Unified Google Search Console and GA4 analytics bridges (3)](#unified-google-search-console-and-ga4-analytics-bridges)
+6. [Connect unified marketing stacks (7)](#6-connect-unified-marketing-stacks)
+   - [Unified Google Search Console and GA4 analytics bridges (2)](#unified-google-search-console-and-ga4-analytics-bridges)
    - [Cross-platform Google Marketing Platform suites (5)](#cross-platform-google-marketing-platform-suites)
 7. [Bridge enterprise data lakes and hybrid extraction (3)](#7-bridge-enterprise-data-lakes-and-hybrid-extraction)
    - [BigQuery bulk export data lake bridges (1)](#bigquery-bulk-export-data-lake-bridges)
    - [Browser-automated rank tracking and SERP extraction (1)](#browser-automated-rank-tracking-and-serp-extraction)
    - [Crawl DOM integration and internal link analysis (1)](#crawl-dom-integration-and-internal-link-analysis)
-8. [Query search analytics through lightweight proxies (23)](#8-query-search-analytics-through-lightweight-proxies)
+8. [Query search analytics through lightweight proxies (21)](#8-query-search-analytics-through-lightweight-proxies)
    - [Token-optimized compact markdown proxies (5)](#token-optimized-compact-markdown-proxies)
    - [Comprehensive multi-endpoint Search Console API proxies (8)](#comprehensive-multi-endpoint-search-console-api-proxies)
-   - [FastMCP and standard search analytics wrappers (7)](#fastmcp-and-standard-search-analytics-wrappers)
-   - [Remote HTTP and cloud-hosted MCP servers (3)](#remote-http-and-cloud-hosted-mcp-servers)
-9. [Developer comparison matrix (65)](#developer-comparison-matrix)
-10. [Resources](#resources)
-11. [Reference](#reference)
+   - [FastMCP and standard search analytics wrappers (6)](#fastmcp-and-standard-search-analytics-wrappers)
+   - [Remote HTTP and cloud-hosted MCP servers (2)](#remote-http-and-cloud-hosted-mcp-servers)
+
+- [Resources](#resources)
+- [Reference](#reference)
 
 ---
 
-## Developer Comparison Matrix
+## Quick Comparison Matrix
 
-*65 projects. Side-by-side technical capability comparison across runtime, authentication, persistence, token formatting, and API coverage. Project names link internally to detailed listings below.*
+*60 projects. High-signal technical capability comparison across runtime, authentication, persistence, token formatting, and API coverage. Project names link internally to detailed listings below.*
 
-| Project | Job Category | Runtime | Transport | Search Analytics | 25k Pagination | URL Inspection | Sitemaps CRUD | Indexing API | BigQuery Bridge | Local DB | WAL Pragmas | Auth Flow | Multi-Account | Domain Props | Write Gating | Token Format | Rate Limiting | Distribution | Stars / Recency |
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-| [acamolese/google-search-console-mcp](#acamolese-google-search-console-mcp) | 3. SEO Diagnostics | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `Backoff` | `uvx` | 8★ (Active) |
-| [ahonn/mcp-server-gsc](#ahonn-mcp-server-gsc) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `None` | `npx` | 273★ (Active) |
-| [AkashRajpurohit/gsc-mcp](#AkashRajpurohit-gsc-mcp) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `Backoff` | `npx` | 3★ (Active) |
-| [AKzar1el/mcp-gsc](#AKzar1el-mcp-gsc) | 2. Agency / Multi-Acc | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth-PKCE` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `Backoff` | `npm` | 5★ (Active) |
-| [AminForou/mcp-gsc](#AminForou-mcp-gsc) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `None` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Read-Only` | `Raw-JSON` | `None` | `uvx` | 1612★ (Active) |
-| [ApollosWave/gsc-cli](#ApollosWave-gsc-cli) | 4. Indexing / Sitemaps | `Node` | `CLI/stdio` | `Full` | `Manual` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Compact-MD` | `None` | `Binary` | 8★ (Active) |
-| [AppsYogi-com/gsc-mcp-server](#AppsYogi-com-gsc-mcp-server) | 4. Indexing / Sitemaps | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `Yes` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `None` | `npx` | 4★ (Stale) |
-| [AStheTECH/mewcp-google-search-console](#AStheTECH-mewcp-google-search-console) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `Source` | 3★ (Active) |
-| [avansaber/seo-monster](#avansaber-seo-monster) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `Backoff` | `uvx` | 242★ (Active) |
-| [bakissation/mcp-google-multi](#bakissation-mcp-google-multi) | 2. Agency / Multi-Acc | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Vault` | `Auto-Detect` | `Strict` | `Raw-JSON` | `Backoff` | `npx` | 11★ (Active) |
-| [bytefer/google-search-console-mcp](#bytefer-google-search-console-mcp) | 4. Indexing / Sitemaps | `Node` | `stdio` | `Full` | `None` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `None` | `npx` | 19★ (Active) |
-| [charlesdove977/search-console-mcp](#charlesdove977-search-console-mcp) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `None` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `uvx` | 13★ (Active) |
-| [crawlseo/crawlseo](#crawlseo-crawlseo) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `None` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Compact-MD` | `None` | `npx` | 599★ (Active) |
-| [Dataslayer-AI/Marketing-skills](#Dataslayer-AI-Marketing-skills) | 6. Marketing Stacks | `Node` | `stdio` | `Full` | `None` | `Full` | `Read-Only` | `No` | `Yes` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Read-Only` | `Raw-JSON` | `None` | `Source` | 23★ (Active) |
-| [Draivix/aidvertaiser](#Draivix-aidvertaiser) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Read-Only` | `Raw-JSON` | `None` | `Source` | 20★ (Active) |
-| [elct9620/noon-sight](#elct9620-noon-sight) | 6. Marketing Stacks | `Node` | `stdio` | `Full` | `None` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `npm` | 2★ (Active) |
-| [eliazv/OpenFindability](#eliazv-OpenFindability) | 1. Local Persistence | `Node` | `stdio` | `Full` | `None` | `Full` | `Yes` | `No` | `No` | `SQLite` | `Yes` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `npm` | 4★ (Active) |
-| [every-app/open-seo](#every-app-open-seo) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `npm` | 19821★ (Active) |
-| [fenjo26/OpenGSC](#fenjo26-OpenGSC) | 1. Local Persistence | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Read-Only` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `Source` | 25★ (Active) |
-| [FlorianBruniaux/google-search-console-mcp](#FlorianBruniaux-google-search-console-mcp) | 3. SEO Diagnostics | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `Yes` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `uvx` | 12★ (Active) |
-| [fourdots/Google-Marketing-MCPs-G.Ads-GA4-GSC-GTM](#fourdots-Google-Marketing-MCPs-G.Ads-GA4-GSC-GTM) | 6. Marketing Stacks | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Read-Only` | `Raw-JSON` | `None` | `Source` | 3★ (Active) |
-| [generalist-club/google-marketing-stack-mcp](#generalist-club-google-marketing-stack-mcp) | 6. Marketing Stacks | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `npx` | 7★ (Active) |
-| [HeyPuter/gsc-mcp](#HeyPuter-gsc-mcp) | 8. Analytics Proxy | `Node` | `HTTP/SSE` | `Full` | `Auto-Loop` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `Backoff` | `Binary` | 5★ (Active) |
-| [houtini-ai/better-search-console](#houtini-ai-better-search-console) | 1. Local Persistence | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `Yes` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `Backoff` | `npx` | 17★ (Active) |
-| [houtini-ai/seo-audit](#houtini-ai-seo-audit) | 1. Local Persistence | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Read-Only` | `Yes` | `No` | `SQLite` | `Yes` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `Backoff` | `npx` | 20★ (Active) |
-| [houtini-ai/seo-crawler-mcp](#houtini-ai-seo-crawler-mcp) | 7. Enterprise Lakes | `Node` | `stdio` | `Full` | `None` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `Yes` | `Service-Acct` | `Dynamic` | `Prefix-Only` | `Read-Only` | `Raw-JSON` | `None` | `npx` | 16★ (Active) |
-| [iannuttall/seo](#iannuttall-seo) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `None` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Compact-MD` | `Token-Bucket` | `npx` | 527★ (Active) |
-| [itsjwill/seoctopus](#itsjwill-seoctopus) | 7. Enterprise Lakes | `Node` | `stdio` | `Full` | `None` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Compact-MD` | `None` | `npx` | 11★ (Stale) |
-| [kLOsk/adloop](#kLOsk-adloop) | 6. Marketing Stacks | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `uvx` | 266★ (Active) |
-| [lionkiii/claude-seo-skills](#lionkiii-claude-seo-skills) | 5. Native / Agent CLI | `Node` | `stdio` | `Full` | `None` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `Source` | 21★ (Active) |
-| [lionkiii/google-searchconsole-mcp](#lionkiii-google-searchconsole-mcp) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `npx` | 7★ (Active) |
-| [Magdoub/awesome-gsc-mcp](#Magdoub-awesome-gsc-mcp) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `Token-Bucket` | `npx` | 14★ (Stale) |
-| [mario-hernandez/google-seo-mcp-claude-code](#mario-hernandez-google-seo-mcp-claude-code) | 5. Native / Agent CLI | `Node` | `stdio` | `Full` | `None` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `Binary` | 12★ (Active) |
-| [MattiooFR/mcp-gsc-multi-account](#MattiooFR-mcp-gsc-multi-account) | 2. Agency / Multi-Acc | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Read-Only` | `Compact-MD` | `None` | `npx` | 2★ (Stale) |
-| [MaxJafar/marketingovo](#MaxJafar-marketingovo) | 1. Local Persistence | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `npx` | 2★ (Active) |
-| [mehere14/SEO-Thermostat](#mehere14-SEO-Thermostat) | 1. Local Persistence | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Compact-MD` | `None` | `npx` | 0★ (Active) |
-| [mikusnuz/gsc-mcp](#mikusnuz-gsc-mcp) | 4. Indexing / Sitemaps | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `Backoff` | `npx` | 7★ (Active) |
-| [mintmcp/google-search-console-mcp](#mintmcp-google-search-console-mcp) | 8. Analytics Proxy | `Node` | `HTTP/SSE` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `Yes` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `npx` | 0★ (Active) |
-| [Mrshahidali420/google-search-console-mcp](#Mrshahidali420-google-search-console-mcp) | 1. Local Persistence | `Node` | `stdio` | `Full` | `None` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `Yes` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `Token-Bucket` | `uvx` | 3★ (Active) |
-| [N-O-P-E/nope-marketplace](#N-O-P-E-nope-marketplace) | 5. Native / Agent CLI | `Node` | `stdio` | `Full` | `None` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Read-Only` | `Raw-JSON` | `None` | `Source` | 9★ (Active) |
-| [nalyk/gsccli](#nalyk-gsccli) | 4. Indexing / Sitemaps | `Node` | `CLI/stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `Backoff` | `npx` | 5★ (Active) |
-| [Namit2111/search-console-mcp](#Namit2111-search-console-mcp) | 8. Analytics Proxy | `Node` | `HTTP/SSE` | `Full` | `None` | `Full` | `Read-Only` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `npx` | 1★ (Active) |
-| [ncosentino/google-search-console-mcp](#ncosentino-google-search-console-mcp) | 5. Native / Agent CLI | `.NET` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `Backoff` | `Binary` | 14★ (Active) |
-| [noduslabs/mcp-server-gsc](#noduslabs-mcp-server-gsc) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `None` | `Full` | `Yes` | `No` | `Yes` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `None` | `npx` | 0★ (Active) |
-| [popiliadam/platinum-seo-engine](#popiliadam-platinum-seo-engine) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `Service-Acct` | `Dynamic` | `Prefix-Only` | `Read-Only` | `Raw-JSON` | `None` | `npx` | 27★ (Active) |
-| [powehi-eu/google-suite-seo-mcp](#powehi-eu-google-suite-seo-mcp) | 6. Marketing Stacks | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Read-Only` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `Binary` | 5★ (Active) |
-| [Rachit8484/geoseo-mcp](#Rachit8484-geoseo-mcp) | 3. SEO Diagnostics | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `uvx` | 3★ (Active) |
-| [samalyxx/gsc-seo-mcp](#samalyxx-gsc-seo-mcp) | 3. SEO Diagnostics | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `npx` | 6★ (Active) |
-| [sarahpark/google-search-console-mcp](#sarahpark-google-search-console-mcp) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Compact-MD` | `None` | `npx` | 9★ (Active) |
-| [saurabhsharma2u/search-console-mcp](#saurabhsharma2u-search-console-mcp) | 2. Agency / Multi-Acc | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Vault` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `npx` | 293★ (Active) |
-| [serpfire/gsc-mcp-server](#serpfire-gsc-mcp-server) | 1. Local Persistence | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `Yes` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `npx` | 11★ (Stale) |
-| [Shin-sibainu/google-search-console-mcp-server](#Shin-sibainu-google-search-console-mcp-server) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `Backoff` | `npx` | 30★ (Stale) |
-| [SimplerSoftwareIO/seo-ai-agent](#SimplerSoftwareIO-seo-ai-agent) | 5. Native / Agent CLI | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `pip` | 3★ (Active) |
-| [sodam-ai/SoDam-SeoMedic](#sodam-ai-SoDam-SeoMedic) | 1. Local Persistence | `Node` | `stdio` | `Full` | `None` | `Full` | `Yes` | `No` | `No` | `SQLite` | `Yes` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `npx` | 16★ (Active) |
-| [sofianbettayeb/gsc-mcp-server](#sofianbettayeb-gsc-mcp-server) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `npx` | 5★ (Active) |
-| [stroniarz/gsc-mcp](#stroniarz-gsc-mcp) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `Backoff` | `uvx` | 1★ (Active) |
-| [stufently/google-webtools-mcp](#stufently-google-webtools-mcp) | 6. Marketing Stacks | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `Token-Bucket` | `npx` | 7★ (Active) |
-| [sudomichael/search-console-mcp](#sudomichael-search-console-mcp) | 2. Agency / Multi-Acc | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth-PKCE` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `None` | `npx` | 7★ (Active) |
-| [Suganthan-Mohanadasan/Suganthans-BigQuery-MCP-Server](#Suganthan-Mohanadasan-Suganthans-BigQuery-MCP-Server) | 7. Enterprise Lakes | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Read-Only` | `No` | `Yes` | `Stateless` | `N/A` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Read-Only` | `Compact-MD` | `None` | `npx` | 43★ (Active) |
-| [Suganthan-Mohanadasan/Suganthans-GSC-MCP](#Suganthan-Mohanadasan-Suganthans-GSC-MCP) | 3. SEO Diagnostics | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `Yes` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Compact-MD` | `None` | `npx` | 130★ (Active) |
-| [surendranb/google-search-console-mcp](#surendranb-google-search-console-mcp) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Prefix-Only` | `Strict` | `Raw-JSON` | `None` | `npx` | 38★ (Active) |
-| [thatseoagent/mcp](#thatseoagent-mcp) | 6. Marketing Stacks | `Node` | `stdio` | `Full` | `None` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `npx` | 2★ (Active) |
-| [VKirill/ohmy-seo](#VKirill-ohmy-seo) | 2. Agency / Multi-Acc | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `Yes` | `No` | `SQLite` | `Yes` | `OAuth2` | `Vault` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `npx` | 10★ (Active) |
-| [vmandic/searchconsole-mcp](#vmandic-searchconsole-mcp) | 8. Analytics Proxy | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Compact-MD` | `None` | `npx` | 3★ (Active) |
-| [Yoshyaes/creator-seo-mcp](#Yoshyaes-creator-seo-mcp) | 3. SEO Diagnostics | `Node` | `stdio` | `Full` | `Auto-Loop` | `Full` | `Yes` | `No` | `No` | `SQLite` | `No` | `OAuth2` | `Dynamic` | `Auto-Detect` | `Strict` | `Raw-JSON` | `None` | `uvx` | 2★ (Active) |
+| Project | Stars | Runtime | Search Analytics | URL Inspect | Sitemaps | Local DB | Auth Model | Output Format |
+|:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| [acamolese/google-search-console-mcp](#acamolese-google-search-console-mcp) | ★ 8 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [ahonn/mcp-server-gsc](#ahonn-mcp-server-gsc) | ★ 273 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
+| [AkashRajpurohit/gsc-mcp](#AkashRajpurohit-gsc-mcp) | ★ 3 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
+| [AKzar1el/mcp-gsc](#AKzar1el-mcp-gsc) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth PKCE | Compact MD |
+| [AminForou/mcp-gsc](#AminForou-mcp-gsc) | ★ 1,612 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [ApollosWave/gsc-cli](#ApollosWave-gsc-cli) | ★ 8 | `Ruby` | ✓ | ✓ | ✓ (Indexing) | SQLite | Service Account | Compact MD |
+| [avansaber/seo-monster](#avansaber-seo-monster) | ★ 242 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [bakissation/mcp-google-multi](#bakissation-mcp-google-multi) | ★ 11 | `Node` | ✓ (25k) | ✓ | ✓ | — | Multi-Account | Raw JSON |
+| [bytefer/google-search-console-mcp](#bytefer-google-search-console-mcp) | ★ 19 | `Node` | ✓ | ✓ | ✓ | — | OAuth2 | Compact MD |
+| [charlesdove977/search-console-mcp](#charlesdove977-search-console-mcp) | ★ 13 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [crawlseo/crawlseo](#crawlseo-crawlseo) | ★ 599 | `Node` | ✓ | ✓ | ✓ | — | OAuth2 | Compact MD |
+| [Dataslayer-AI/Marketing-skills](#Dataslayer-AI-Marketing-skills) | ★ 23 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [Draivix/aidvertaiser](#Draivix-aidvertaiser) | ★ 20 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
+| [eliazv/OpenFindability](#eliazv-OpenFindability) | ★ 4 | `Node` | ✓ | ✓ | ✓ | SQLite | Service Account | Raw JSON |
+| [every-app/open-seo](#every-app-open-seo) | ★ 19,821 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [fenjo26/OpenGSC](#fenjo26-OpenGSC) | ★ 25 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
+| [FlorianBruniaux/google-search-console-mcp](#FlorianBruniaux-google-search-console-mcp) | ★ 12 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | Service Account | Raw JSON |
+| [fourdots/Google-Marketing-MCPs-G.Ads-GA4-GSC-GTM](#fourdots-Google-Marketing-MCPs-G.Ads-GA4-GSC-GTM) | ★ 3 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
+| [generalist-club/google-marketing-stack-mcp](#generalist-club-google-marketing-stack-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
+| [HeyPuter/gsc-mcp](#HeyPuter-gsc-mcp) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [houtini-ai/better-search-console](#houtini-ai-better-search-console) | ★ 17 | `Node` | ✓ (25k) | ✓ | ✓ | SQLite | Service Account | Raw JSON |
+| [houtini-ai/seo-audit](#houtini-ai-seo-audit) | ★ 20 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | Service Account | Compact MD |
+| [houtini-ai/seo-crawler-mcp](#houtini-ai-seo-crawler-mcp) | ★ 16 | `Node` | ✓ | ✓ | ✓ | SQLite | Service Account | Raw JSON |
+| [iannuttall/seo](#iannuttall-seo) | ★ 527 | `Node` | ✓ | ✓ | ✓ | SQLite | OAuth2 | Compact MD |
+| [itsjwill/seoctopus](#itsjwill-seoctopus) | ★ 11 | `Node` | ✓ | ✓ | ✓ | SQLite | OAuth2 | Compact MD |
+| [kLOsk/adloop](#kLOsk-adloop) | ★ 266 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [lionkiii/claude-seo-skills](#lionkiii-claude-seo-skills) | ★ 21 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [lionkiii/google-searchconsole-mcp](#lionkiii-google-searchconsole-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
+| [Magdoub/awesome-gsc-mcp](#Magdoub-awesome-gsc-mcp) | ★ 14 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
+| [mario-hernandez/google-seo-mcp-claude-code](#mario-hernandez-google-seo-mcp-claude-code) | ★ 12 | `Python` | ✓ | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
+| [MaxJafar/marketingovo](#MaxJafar-marketingovo) | ★ 2 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
+| [mehere14/SEO-Thermostat](#mehere14-SEO-Thermostat) | ★ 0 | `Python` | ✓ (25k) | ✓ | ✓ | SQLite | Service Account | Compact MD |
+| [mikusnuz/gsc-mcp](#mikusnuz-gsc-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
+| [mintmcp/google-search-console-mcp](#mintmcp-google-search-console-mcp) | ★ 0 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
+| [Mrshahidali420/google-search-console-mcp](#Mrshahidali420-google-search-console-mcp) | ★ 3 | `Python` | ✓ | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
+| [N-O-P-E/nope-marketplace](#N-O-P-E-nope-marketplace) | ★ 9 | `Node` | ✓ | ✓ | ✓ | — | Cookie | Raw JSON |
+| [nalyk/gsccli](#nalyk-gsccli) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
+| [ncosentino/google-search-console-mcp](#ncosentino-google-search-console-mcp) | ★ 14 | `C# / AOT` | ✓ (25k) | ✓ | ✓ | — | Service Account | Raw JSON |
+| [noduslabs/mcp-server-gsc](#noduslabs-mcp-server-gsc) | ★ 0 | `Node` | ✓ | ✓ | ✓ | — | Service Account | Compact MD |
+| [popiliadam/platinum-seo-engine](#popiliadam-platinum-seo-engine) | ★ 27 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
+| [powehi-eu/google-suite-seo-mcp](#powehi-eu-google-suite-seo-mcp) | ★ 5 | `Go` | ✓ (25k) | ✓ | ✓ | — | Service Account | Raw JSON |
+| [Rachit8484/geoseo-mcp](#Rachit8484-geoseo-mcp) | ★ 3 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
+| [samalyxx/gsc-seo-mcp](#samalyxx-gsc-seo-mcp) | ★ 6 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
+| [sarahpark/google-search-console-mcp](#sarahpark-google-search-console-mcp) | ★ 9 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Compact MD |
+| [saurabhsharma2u/search-console-mcp](#saurabhsharma2u-search-console-mcp) | ★ 293 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Multi-Account | Raw JSON |
+| [serpfire/gsc-mcp-server](#serpfire-gsc-mcp-server) | ★ 11 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
+| [Shin-sibainu/google-search-console-mcp-server](#Shin-sibainu-google-search-console-mcp-server) | ★ 30 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Compact MD |
+| [SimplerSoftwareIO/seo-ai-agent](#SimplerSoftwareIO-seo-ai-agent) | ★ 3 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | Service Account | Raw JSON |
+| [sodam-ai/SoDam-SeoMedic](#sodam-ai-SoDam-SeoMedic) | ★ 16 | `Node` | ✓ | ✓ | ✓ | SQLite | Service Account | Raw JSON |
+| [sofianbettayeb/gsc-mcp-server](#sofianbettayeb-gsc-mcp-server) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
+| [stroniarz/gsc-mcp](#stroniarz-gsc-mcp) | ★ 1 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Compact MD |
+| [stufently/google-webtools-mcp](#stufently-google-webtools-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
+| [sudomichael/search-console-mcp](#sudomichael-search-console-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth PKCE | Compact MD |
+| [Suganthan-Mohanadasan/Suganthans-BigQuery-MCP-Server](#Suganthan-Mohanadasan-Suganthans-BigQuery-MCP-Server) | ★ 43 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
+| [Suganthan-Mohanadasan/Suganthans-GSC-MCP](#Suganthan-Mohanadasan-Suganthans-GSC-MCP) | ★ 130 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
+| [surendranb/google-search-console-mcp](#surendranb-google-search-console-mcp) | ★ 38 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
+| [thatseoagent/mcp](#thatseoagent-mcp) | ★ 2 | `Node` | ✓ | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
+| [VKirill/ohmy-seo](#VKirill-ohmy-seo) | ★ 10 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | Multi-Account | Raw JSON |
+| [vmandic/searchconsole-mcp](#vmandic-searchconsole-mcp) | ★ 3 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
+| [Yoshyaes/creator-seo-mcp](#Yoshyaes-creator-seo-mcp) | ★ 2 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
 
 ---
 
@@ -158,16 +155,15 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ## 2. Manage multi-property and agency access
 
-*6 projects. Dynamic account routers, multi-tenant credential isolation, and frictionless OAuth 2.0 onboarding for agencies managing multiple client properties.*
+*5 projects. Dynamic account routers, multi-tenant credential isolation, and frictionless OAuth 2.0 onboarding for agencies managing multiple client properties.*
 
 ### Dynamic multi-account routing and credential isolation
 
-*2 projects. Routes tool calls across multiple Google accounts using dedicated connection names or encrypted client vaults.*
+*1 projects. Routes tool calls across multiple Google accounts using dedicated connection names or encrypted client vaults.*
 
 | Project | What it does |
 |---|---|
 | <a id="bakissation-mcp-google-multi"></a>[**bakissation/mcp-google-multi**](https://github.com/bakissation/mcp-google-multi) | Switches dynamically between multiple Google accounts with parallel fanout support. Allows agency agents to execute cross-client Search Console queries using dedicated account connection parameters. |
-| <a id="MattiooFR-mcp-gsc-multi-account"></a>[**MattiooFR/mcp-gsc-multi-account**](https://github.com/MattiooFR/mcp-gsc-multi-account) | Manages named account profiles for dynamic property switching across diverse Search Console accounts. Simplifies agency multi-tenant workflows without requiring process restarts. |
 
 ### Multi-tenant domain matching and dynamic siteUrl resolution
 
@@ -224,7 +220,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ## 4. Automate indexing and URL lifecycle
 
-*5 projects. Batch URL inspection, real-time Google Indexing API submission, and automated XML sitemap CRUD operations.*
+*4 projects. Batch URL inspection, real-time Google Indexing API submission, and automated XML sitemap CRUD operations.*
 
 ### Batch URL inspection and indexing automation
 
@@ -245,12 +241,11 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ### Sitemap management and indexing feed inspection
 
-*2 projects. Submits XML sitemaps, inspects feed warnings, and monitors indexed URL ratios across verified properties.*
+*1 projects. Submits XML sitemaps, inspects feed warnings, and monitors indexed URL ratios across verified properties.*
 
 | Project | What it does |
 |---|---|
 | <a id="bytefer-google-search-console-mcp"></a>[**bytefer/google-search-console-mcp**](https://github.com/bytefer/google-search-console-mcp) | Provides complete sitemaps CRUD operations and XML feed validation alongside search analytics. Monitors indexed URL ratios and sitemap crawl errors. |
-| <a id="AppsYogi-com-gsc-mcp-server"></a>[**AppsYogi-com/gsc-mcp-server**](https://github.com/AppsYogi-com/gsc-mcp-server) | Manages sitemap submission and automated URL inspection through structured MCP schemas. Verifies site ownership and reports indexing coverage issues. |
 
 ---
 
@@ -288,17 +283,16 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ## 6. Connect unified marketing stacks
 
-*8 projects. Multi-platform MCP servers integrating Search Console with GA4, Google Ads, GTM, and third-party advertising platforms.*
+*7 projects. Multi-platform MCP servers integrating Search Console with GA4, Google Ads, GTM, and third-party advertising platforms.*
 
 ### Unified Google Search Console and GA4 analytics bridges
 
-*3 projects. Bridges search visibility with post-click user engagement, sessions, and conversions within a unified dual-tool server.*
+*2 projects. Bridges search visibility with post-click user engagement, sessions, and conversions within a unified dual-tool server.*
 
 | Project | What it does |
 |---|---|
 | <a id="stufently-google-webtools-mcp"></a>[**stufently/google-webtools-mcp**](https://github.com/stufently/google-webtools-mcp) | Bridges Search Console organic search data with Google Analytics 4 sessions and conversions. Formats output into compact Markdown tables to conserve LLM context tokens. |
 | <a id="kLOsk-adloop"></a>[**kLOsk/adloop**](https://github.com/kLOsk/adloop) | Unifies Search Console search queries with Google Ads conversion tracking. Monitors organic keyword rankings and paid search efficiency within a single agent interface. |
-| <a id="elct9620-noon-sight"></a>[**elct9620/noon-sight**](https://github.com/elct9620/noon-sight) | Aggregates Search Console, Google Analytics, and Cloudflare Analytics in a unified multi-channel reporting MCP server. Analyzes full-funnel search and edge traffic trends. |
 
 ### Cross-platform Google Marketing Platform suites
 
@@ -346,7 +340,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ## 8. Query search analytics through lightweight proxies
 
-*23 projects. Fast, lightweight MCP proxies connecting LLMs directly to Search Console API endpoints with varying token formatting.*
+*21 projects. Fast, lightweight MCP proxies connecting LLMs directly to Search Console API endpoints with varying token formatting.*
 
 ### Token-optimized compact markdown proxies
 
@@ -377,7 +371,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ### FastMCP and standard search analytics wrappers
 
-*7 projects. Straightforward Python FastMCP and TypeScript implementations wrapping the core searchAnalytics.query endpoint.*
+*6 projects. Straightforward Python FastMCP and TypeScript implementations wrapping the core searchAnalytics.query endpoint.*
 
 | Project | What it does |
 |---|---|
@@ -385,19 +379,17 @@ Official links: [Google Search Console](https://search.google.com/search-console
 | <a id="every-app-open-seo"></a>[**every-app/open-seo**](https://github.com/every-app/open-seo) | Supplies open-source SEO tools wrapping Search Console API queries for AI coding assistants and automation workflows. |
 | <a id="crawlseo-crawlseo"></a>[**crawlseo/crawlseo**](https://github.com/crawlseo/crawlseo) | Wraps Google Search Console performance reporting within an open-source SEO analysis toolkit. |
 | <a id="avansaber-seo-monster"></a>[**avansaber/seo-monster**](https://github.com/avansaber/seo-monster) | Provides Python-based Search Console query tools with basic multi-dimension filtering and position tracking. |
-| <a id="AStheTECH-mewcp-google-search-console"></a>[**AStheTECH/mewcp-google-search-console**](https://github.com/AStheTECH/mewcp-google-search-console) | Wraps Search Console queries within the MEWCP unified protocol format for cross-agent compatibility. |
 | <a id="popiliadam-platinum-seo-engine"></a>[**popiliadam/platinum-seo-engine**](https://github.com/popiliadam/platinum-seo-engine) | Provides Search Console analytics tools within an enterprise SEO automation engine with 538 git commits. |
 | <a id="Draivix-aidvertaiser"></a>[**Draivix/aidvertaiser**](https://github.com/Draivix/aidvertaiser) | Exposes Search Console tools alongside 180+ digital advertising tools within a large multi-platform MCP suite. |
 
 ### Remote HTTP and cloud-hosted MCP servers
 
-*3 projects. Cloud-hosted MCP servers accessible over remote HTTP or Server-Sent Events (SSE) without local runtime dependencies.*
+*2 projects. Cloud-hosted MCP servers accessible over remote HTTP or Server-Sent Events (SSE) without local runtime dependencies.*
 
 | Project | What it does |
 |---|---|
 | <a id="mintmcp-google-search-console-mcp"></a>[**mintmcp/google-search-console-mcp**](https://github.com/mintmcp/google-search-console-mcp) | Exposes 15+ Search Console tools over a remote streamable HTTP SSE transport. Enables cloud-native agent integrations without local server hosting. |
 | <a id="HeyPuter-gsc-mcp"></a>[**HeyPuter/gsc-mcp**](https://github.com/HeyPuter/gsc-mcp) | Runs Search Console MCP tools directly inside the cloud-hosted Puter.com OS environment. Accessible remotely via secure webhooks. |
-| <a id="Namit2111-search-console-mcp"></a>[**Namit2111/search-console-mcp**](https://github.com/Namit2111/search-console-mcp) | Provides a hosted web MCP server accessible via seomcp.namitjain.com for remote agent execution without local installation. |
 
 ---
 
