@@ -8,7 +8,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ## Contents
 
-- [Quick Comparison Matrix (60)](#quick-comparison-matrix)
+- [Quick Comparison Matrix (57)](#quick-comparison-matrix)
 
 1. [Persist and query data locally (9)](#1-persist-and-query-data-locally)
    - [Embedded SQLite data warehouses with sandboxed SQL (4)](#embedded-sqlite-data-warehouses-with-sandboxed-sql)
@@ -22,10 +22,9 @@ Official links: [Google Search Console](https://search.google.com/search-console
    - [Keyword cannibalization and content decay diagnostics (2)](#keyword-cannibalization-and-content-decay-diagnostics)
    - [Multi-signal SEO audits with CrUX, IndexNow, and HTML reporting (2)](#multi-signal-seo-audits-with-crux-indexnow-and-html-reporting)
    - [CTR opportunity modeling and GEO attribution analytics (2)](#ctr-opportunity-modeling-and-geo-attribution-analytics)
-4. [Automate indexing and URL lifecycle (4)](#4-automate-indexing-and-url-lifecycle)
+4. [Automate indexing and URL lifecycle (3)](#4-automate-indexing-and-url-lifecycle)
    - [Batch URL inspection and indexing automation (2)](#batch-url-inspection-and-indexing-automation)
    - [Combined search analytics and Indexing API lifecycle (1)](#combined-search-analytics-and-indexing-api-lifecycle)
-   - [Sitemap management and indexing feed inspection (1)](#sitemap-management-and-indexing-feed-inspection)
 5. [Drive agents via CLI and native runtimes (5)](#5-drive-agents-via-cli-and-native-runtimes)
    - [Native compiled binaries with zero-dependency execution (1)](#native-compiled-binaries-with-zero-dependency-execution)
    - [Autonomous agent frameworks with GSC tool integration (1)](#autonomous-agent-frameworks-with-gsc-tool-integration)
@@ -33,15 +32,13 @@ Official links: [Google Search Console](https://search.google.com/search-console
 6. [Connect unified marketing stacks (7)](#6-connect-unified-marketing-stacks)
    - [Unified Google Search Console and GA4 analytics bridges (2)](#unified-google-search-console-and-ga4-analytics-bridges)
    - [Cross-platform Google Marketing Platform suites (5)](#cross-platform-google-marketing-platform-suites)
-7. [Bridge enterprise data lakes and hybrid extraction (3)](#7-bridge-enterprise-data-lakes-and-hybrid-extraction)
+7. [Bridge enterprise data lakes and cloud warehouses (1)](#7-bridge-enterprise-data-lakes-and-cloud-warehouses)
    - [BigQuery bulk export data lake bridges (1)](#bigquery-bulk-export-data-lake-bridges)
-   - [Browser-automated rank tracking and SERP extraction (1)](#browser-automated-rank-tracking-and-serp-extraction)
-   - [Crawl DOM integration and internal link analysis (1)](#crawl-dom-integration-and-internal-link-analysis)
 8. [Query search analytics through lightweight proxies (21)](#8-query-search-analytics-through-lightweight-proxies)
    - [Token-optimized compact markdown proxies (5)](#token-optimized-compact-markdown-proxies)
    - [Comprehensive multi-endpoint Search Console API proxies (8)](#comprehensive-multi-endpoint-search-console-api-proxies)
-   - [FastMCP and standard search analytics wrappers (6)](#fastmcp-and-standard-search-analytics-wrappers)
-   - [Remote HTTP and cloud-hosted MCP servers (2)](#remote-http-and-cloud-hosted-mcp-servers)
+   - [FastMCP and standard search analytics wrappers (7)](#fastmcp-and-standard-search-analytics-wrappers)
+   - [Remote HTTP and cloud-hosted MCP servers (1)](#remote-http-and-cloud-hosted-mcp-servers)
 
 - [Resources](#resources)
 - [Reference](#reference)
@@ -50,70 +47,67 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ## Quick Comparison Matrix
 
-*60 projects. High-signal technical capability comparison across runtime, authentication, persistence, token formatting, and API coverage. Project names link internally to detailed listings below.*
+*57 projects. High-signal technical capability comparison across runtime, authentication, persistence, token formatting, and API coverage. Project names link internally to detailed listings below.*
 
 | Project | Stars | Runtime | Search Analytics | URL Inspect | Sitemaps | Local DB | Auth Model | Output Format |
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| [acamolese/google-search-console-mcp](#acamolese-google-search-console-mcp) | ★ 8 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
-| [ahonn/mcp-server-gsc](#ahonn-mcp-server-gsc) | ★ 273 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
-| [AkashRajpurohit/gsc-mcp](#AkashRajpurohit-gsc-mcp) | ★ 3 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
-| [AKzar1el/mcp-gsc](#AKzar1el-mcp-gsc) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth PKCE | Compact MD |
+| [acamolese/google-search-console-mcp](#acamolese-google-search-console-mcp) | ★ 8 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [ahonn/mcp-server-gsc](#ahonn-mcp-server-gsc) | ★ 273 | `Node` | ✓ | ✓ | ✓ | — | Service Account | Compact MD |
+| [AkashRajpurohit/gsc-mcp](#AkashRajpurohit-gsc-mcp) | ★ 3 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
+| [AKzar1el/mcp-gsc](#AKzar1el-mcp-gsc) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth PKCE | Raw JSON |
 | [AminForou/mcp-gsc](#AminForou-mcp-gsc) | ★ 1,612 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
-| [ApollosWave/gsc-cli](#ApollosWave-gsc-cli) | ★ 8 | `Ruby` | ✓ | ✓ | ✓ (Indexing) | SQLite | Service Account | Compact MD |
-| [avansaber/seo-monster](#avansaber-seo-monster) | ★ 242 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [ApollosWave/gsc-cli](#ApollosWave-gsc-cli) | ★ 8 | `Ruby` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | Service Account | Raw JSON |
+| [avansaber/seo-monster](#avansaber-seo-monster) | ★ 242 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
 | [bakissation/mcp-google-multi](#bakissation-mcp-google-multi) | ★ 11 | `Node` | ✓ (25k) | ✓ | ✓ | — | Multi-Account | Raw JSON |
-| [bytefer/google-search-console-mcp](#bytefer-google-search-console-mcp) | ★ 19 | `Node` | ✓ | ✓ | ✓ | — | OAuth2 | Compact MD |
-| [charlesdove977/search-console-mcp](#charlesdove977-search-console-mcp) | ★ 13 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
-| [crawlseo/crawlseo](#crawlseo-crawlseo) | ★ 599 | `Node` | ✓ | ✓ | ✓ | — | OAuth2 | Compact MD |
-| [Dataslayer-AI/Marketing-skills](#Dataslayer-AI-Marketing-skills) | ★ 23 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
-| [Draivix/aidvertaiser](#Draivix-aidvertaiser) | ★ 20 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
-| [eliazv/OpenFindability](#eliazv-OpenFindability) | ★ 4 | `Node` | ✓ | ✓ | ✓ | SQLite | Service Account | Raw JSON |
-| [every-app/open-seo](#every-app-open-seo) | ★ 19,821 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
-| [fenjo26/OpenGSC](#fenjo26-OpenGSC) | ★ 25 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
-| [FlorianBruniaux/google-search-console-mcp](#FlorianBruniaux-google-search-console-mcp) | ★ 12 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | Service Account | Raw JSON |
-| [fourdots/Google-Marketing-MCPs-G.Ads-GA4-GSC-GTM](#fourdots-Google-Marketing-MCPs-G.Ads-GA4-GSC-GTM) | ★ 3 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
-| [generalist-club/google-marketing-stack-mcp](#generalist-club-google-marketing-stack-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
-| [HeyPuter/gsc-mcp](#HeyPuter-gsc-mcp) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
-| [houtini-ai/better-search-console](#houtini-ai-better-search-console) | ★ 17 | `Node` | ✓ (25k) | ✓ | ✓ | SQLite | Service Account | Raw JSON |
-| [houtini-ai/seo-audit](#houtini-ai-seo-audit) | ★ 20 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | Service Account | Compact MD |
-| [houtini-ai/seo-crawler-mcp](#houtini-ai-seo-crawler-mcp) | ★ 16 | `Node` | ✓ | ✓ | ✓ | SQLite | Service Account | Raw JSON |
+| [bytefer/google-search-console-mcp](#bytefer-google-search-console-mcp) | ★ 19 | `Node` | ✓ | ✓ | — | — | OAuth2 | Raw JSON |
+| [charlesdove977/search-console-mcp](#charlesdove977-search-console-mcp) | ★ 13 | `Python` | ✓ | — | — | — | OAuth2 | Raw JSON |
+| [crawlseo/crawlseo](#crawlseo-crawlseo) | ★ 599 | `Node` | ✓ | — | — | — | OAuth2 | Raw JSON |
+| [Dataslayer-AI/Marketing-skills](#Dataslayer-AI-Marketing-skills) | ★ 23 | `Python` | ✓ | — | — | — | OAuth2 | Raw JSON |
+| [Draivix/aidvertaiser](#Draivix-aidvertaiser) | ★ 20 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [eliazv/OpenFindability](#eliazv-OpenFindability) | ★ 4 | `Node` | ✓ | ✓ | ✓ | SQLite | Service Account | Dashboard |
+| [every-app/open-seo](#every-app-open-seo) | ★ 19,821 | `Node` | ✓ | ✓ | — | — | OAuth2 | Raw JSON |
+| [fenjo26/OpenGSC](#fenjo26-OpenGSC) | ★ 25 | `Node` | ✓ | ✓ | ✓ | SQLite | OAuth2 | SQL Engine |
+| [FlorianBruniaux/google-search-console-mcp](#FlorianBruniaux-google-search-console-mcp) | ★ 12 | `Python` | ✓ (25k) | ✓ | ✓ | SQLite | Service Account | Raw JSON |
+| [fourdots/Google-Marketing-MCPs-G.Ads-GA4-GSC-GTM](#fourdots-Google-Marketing-MCPs-G.Ads-GA4-GSC-GTM) | ★ 3 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [generalist-club/google-marketing-stack-mcp](#generalist-club-google-marketing-stack-mcp) | ★ 7 | `Node` | ✓ (25k) | — | ✓ | — | OAuth2 | Raw JSON |
+| [houtini-ai/better-search-console](#houtini-ai-better-search-console) | ★ 17 | `Node` | ✓ | — | — | SQLite | Service Account | SQL Engine |
+| [houtini-ai/seo-audit](#houtini-ai-seo-audit) | ★ 20 | `Node` | ✓ (25k) | ✓ | ✓ | SQLite | Service Account | SQL Engine |
 | [iannuttall/seo](#iannuttall-seo) | ★ 527 | `Node` | ✓ | ✓ | ✓ | SQLite | OAuth2 | Compact MD |
-| [itsjwill/seoctopus](#itsjwill-seoctopus) | ★ 11 | `Node` | ✓ | ✓ | ✓ | SQLite | OAuth2 | Compact MD |
-| [kLOsk/adloop](#kLOsk-adloop) | ★ 266 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [kLOsk/adloop](#kLOsk-adloop) | ★ 266 | `Python` | ✓ | — | — | — | OAuth2 | Raw JSON |
 | [lionkiii/claude-seo-skills](#lionkiii-claude-seo-skills) | ★ 21 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
-| [lionkiii/google-searchconsole-mcp](#lionkiii-google-searchconsole-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
-| [Magdoub/awesome-gsc-mcp](#Magdoub-awesome-gsc-mcp) | ★ 14 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
-| [mario-hernandez/google-seo-mcp-claude-code](#mario-hernandez-google-seo-mcp-claude-code) | ★ 12 | `Python` | ✓ | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
-| [MaxJafar/marketingovo](#MaxJafar-marketingovo) | ★ 2 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
-| [mehere14/SEO-Thermostat](#mehere14-SEO-Thermostat) | ★ 0 | `Python` | ✓ (25k) | ✓ | ✓ | SQLite | Service Account | Compact MD |
+| [lionkiii/google-searchconsole-mcp](#lionkiii-google-searchconsole-mcp) | ★ 7 | `Node` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [Magdoub/awesome-gsc-mcp](#Magdoub-awesome-gsc-mcp) | ★ 14 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Raw JSON |
+| [mario-hernandez/google-seo-mcp-claude-code](#mario-hernandez-google-seo-mcp-claude-code) | ★ 12 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [MaxJafar/marketingovo](#MaxJafar-marketingovo) | ★ 2 | `Node` | ✓ (25k) | ✓ | ✓ | SQLite | OAuth2 | Dashboard |
+| [mehere14/SEO-Thermostat](#mehere14-SEO-Thermostat) | ★ 0 | `Python` | ✓ | — | ✓ | SQLite | Service Account | Dashboard |
 | [mikusnuz/gsc-mcp](#mikusnuz-gsc-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
-| [mintmcp/google-search-console-mcp](#mintmcp-google-search-console-mcp) | ★ 0 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
-| [Mrshahidali420/google-search-console-mcp](#Mrshahidali420-google-search-console-mcp) | ★ 3 | `Python` | ✓ | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
+| [mintmcp/google-search-console-mcp](#mintmcp-google-search-console-mcp) | ★ 0 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [Mrshahidali420/google-search-console-mcp](#Mrshahidali420-google-search-console-mcp) | ★ 3 | `Python` | ✓ | ✓ | ✓ | SQLite | OAuth2 | Raw JSON |
 | [N-O-P-E/nope-marketplace](#N-O-P-E-nope-marketplace) | ★ 9 | `Node` | ✓ | ✓ | ✓ | — | Cookie | Raw JSON |
-| [nalyk/gsccli](#nalyk-gsccli) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
-| [ncosentino/google-search-console-mcp](#ncosentino-google-search-console-mcp) | ★ 14 | `C# / AOT` | ✓ (25k) | ✓ | ✓ | — | Service Account | Raw JSON |
-| [noduslabs/mcp-server-gsc](#noduslabs-mcp-server-gsc) | ★ 0 | `Node` | ✓ | ✓ | ✓ | — | Service Account | Compact MD |
-| [popiliadam/platinum-seo-engine](#popiliadam-platinum-seo-engine) | ★ 27 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
-| [powehi-eu/google-suite-seo-mcp](#powehi-eu-google-suite-seo-mcp) | ★ 5 | `Go` | ✓ (25k) | ✓ | ✓ | — | Service Account | Raw JSON |
-| [Rachit8484/geoseo-mcp](#Rachit8484-geoseo-mcp) | ★ 3 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
-| [samalyxx/gsc-seo-mcp](#samalyxx-gsc-seo-mcp) | ★ 6 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
-| [sarahpark/google-search-console-mcp](#sarahpark-google-search-console-mcp) | ★ 9 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Compact MD |
-| [saurabhsharma2u/search-console-mcp](#saurabhsharma2u-search-console-mcp) | ★ 293 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Multi-Account | Raw JSON |
-| [serpfire/gsc-mcp-server](#serpfire-gsc-mcp-server) | ★ 11 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
-| [Shin-sibainu/google-search-console-mcp-server](#Shin-sibainu-google-search-console-mcp-server) | ★ 30 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Compact MD |
-| [SimplerSoftwareIO/seo-ai-agent](#SimplerSoftwareIO-seo-ai-agent) | ★ 3 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | Service Account | Raw JSON |
-| [sodam-ai/SoDam-SeoMedic](#sodam-ai-SoDam-SeoMedic) | ★ 16 | `Node` | ✓ | ✓ | ✓ | SQLite | Service Account | Raw JSON |
-| [sofianbettayeb/gsc-mcp-server](#sofianbettayeb-gsc-mcp-server) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | OAuth2 | Raw JSON |
-| [stroniarz/gsc-mcp](#stroniarz-gsc-mcp) | ★ 1 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Compact MD |
-| [stufently/google-webtools-mcp](#stufently-google-webtools-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
-| [sudomichael/search-console-mcp](#sudomichael-search-console-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth PKCE | Compact MD |
-| [Suganthan-Mohanadasan/Suganthans-BigQuery-MCP-Server](#Suganthan-Mohanadasan-Suganthans-BigQuery-MCP-Server) | ★ 43 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
-| [Suganthan-Mohanadasan/Suganthans-GSC-MCP](#Suganthan-Mohanadasan-Suganthans-GSC-MCP) | ★ 130 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
-| [surendranb/google-search-console-mcp](#surendranb-google-search-console-mcp) | ★ 38 | `Python` | ✓ (25k) | ✓ | ✓ (Indexing) | — | Service Account | Raw JSON |
-| [thatseoagent/mcp](#thatseoagent-mcp) | ★ 2 | `Node` | ✓ | ✓ | ✓ (Indexing) | SQLite | OAuth2 | Raw JSON |
-| [VKirill/ohmy-seo](#VKirill-ohmy-seo) | ★ 10 | `Node` | ✓ (25k) | ✓ | ✓ (Indexing) | SQLite | Multi-Account | Raw JSON |
-| [vmandic/searchconsole-mcp](#vmandic-searchconsole-mcp) | ★ 3 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Compact MD |
-| [Yoshyaes/creator-seo-mcp](#Yoshyaes-creator-seo-mcp) | ★ 2 | `Python` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [nalyk/gsccli](#nalyk-gsccli) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Raw JSON |
+| [ncosentino/google-search-console-mcp](#ncosentino-google-search-console-mcp) | ★ 14 | `C# / AOT` | ✓ | ✓ | ✓ | — | Service Account | Raw JSON |
+| [noduslabs/mcp-server-gsc](#noduslabs-mcp-server-gsc) | ★ 0 | `Node` | ✓ | ✓ | ✓ | — | Service Account | Raw JSON |
+| [popiliadam/platinum-seo-engine](#popiliadam-platinum-seo-engine) | ★ 27 | `Python` | ✓ | ✓ | ✓ | — | Service Account | Raw JSON |
+| [powehi-eu/google-suite-seo-mcp](#powehi-eu-google-suite-seo-mcp) | ★ 5 | `Go` | ✓ | ✓ | ✓ | — | Service Account | Raw JSON |
+| [Rachit8484/geoseo-mcp](#Rachit8484-geoseo-mcp) | ★ 3 | `Python` | ✓ | ✓ | ✓ | SQLite | OAuth2 | Raw JSON |
+| [samalyxx/gsc-seo-mcp](#samalyxx-gsc-seo-mcp) | ★ 6 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Raw JSON |
+| [sarahpark/google-search-console-mcp](#sarahpark-google-search-console-mcp) | ★ 9 | `Node` | ✓ | ✓ | ✓ | — | Service Account | Compact MD |
+| [saurabhsharma2u/search-console-mcp](#saurabhsharma2u-search-console-mcp) | ★ 293 | `Node` | ✓ | ✓ | ✓ | — | Multi-Account | Raw JSON |
+| [serpfire/gsc-mcp-server](#serpfire-gsc-mcp-server) | ★ 11 | `Node` | ✓ (25k) | ✓ | ✓ | SQLite | OAuth2 | SQL Engine |
+| [Shin-sibainu/google-search-console-mcp-server](#Shin-sibainu-google-search-console-mcp-server) | ★ 30 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [SimplerSoftwareIO/seo-ai-agent](#SimplerSoftwareIO-seo-ai-agent) | ★ 3 | `Python` | ✓ | ✓ | ✓ | SQLite | Service Account | Raw JSON |
+| [sodam-ai/SoDam-SeoMedic](#sodam-ai-SoDam-SeoMedic) | ★ 16 | `Node` | ✓ | — | ✓ | SQLite | Service Account | Dashboard |
+| [sofianbettayeb/gsc-mcp-server](#sofianbettayeb-gsc-mcp-server) | ★ 5 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth2 | Raw JSON |
+| [stroniarz/gsc-mcp](#stroniarz-gsc-mcp) | ★ 1 | `Python` | ✓ | ✓ | ✓ | — | OAuth2 | Compact MD |
+| [stufently/google-webtools-mcp](#stufently-google-webtools-mcp) | ★ 7 | `Node` | ✓ | ✓ | ✓ | — | Service Account | Compact MD |
+| [sudomichael/search-console-mcp](#sudomichael-search-console-mcp) | ★ 7 | `Node` | ✓ (25k) | ✓ | ✓ | — | OAuth PKCE | Raw JSON |
+| [Suganthan-Mohanadasan/Suganthans-BigQuery-MCP-Server](#Suganthan-Mohanadasan-Suganthans-BigQuery-MCP-Server) | ★ 43 | `Node` | ✓ (25k) | — | — | — | Service Account | Raw JSON |
+| [Suganthan-Mohanadasan/Suganthans-GSC-MCP](#Suganthan-Mohanadasan-Suganthans-GSC-MCP) | ★ 130 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Raw JSON |
+| [surendranb/google-search-console-mcp](#surendranb-google-search-console-mcp) | ★ 38 | `Python` | ✓ (25k) | — | ✓ | — | Service Account | Raw JSON |
+| [thatseoagent/mcp](#thatseoagent-mcp) | ★ 2 | `Node` | ✓ | ✓ | ✓ | SQLite | OAuth2 | Raw JSON |
+| [VKirill/ohmy-seo](#VKirill-ohmy-seo) | ★ 10 | `Node` | ✓ (25k) | ✓ | ✓ | SQLite | Multi-Account | Raw JSON |
+| [vmandic/searchconsole-mcp](#vmandic-searchconsole-mcp) | ★ 3 | `Node` | ✓ (25k) | ✓ | ✓ | — | Service Account | Raw JSON |
+| [Yoshyaes/creator-seo-mcp](#Yoshyaes-creator-seo-mcp) | ★ 2 | `Python` | ✓ (25k) | — | — | — | OAuth2 | Raw JSON |
 
 ---
 
@@ -180,7 +174,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 | Project | What it does |
 |---|---|
-| <a id="sudomichael-search-console-mcp"></a>[**sudomichael/search-console-mcp**](https://github.com/sudomichael/search-console-mcp) | Provides a frictionless 30-second OAuth 2.0 PKCE browser sign-in for Claude Desktop and Cursor. Eliminates manual Google Cloud Console configuration and Service Account key generation. |
+| <a id="sudomichael-search-console-mcp"></a>[**sudomichael/search-console-mcp**](https://github.com/sudomichael/search-console-mcp) | Implements OAuth 2.0 PKCE browser authentication for Claude Desktop and Cursor, eliminating manual Service Account key setup. |
 | <a id="AKzar1el-mcp-gsc"></a>[**AKzar1el/mcp-gsc**](https://github.com/AKzar1el/mcp-gsc) | Exposes 21 Search Console tools over a hosted remote MCP server with OAuth 2.0 PKCE onboarding. Validates protocol prefixes and supports domain-level property switching. |
 
 ---
@@ -220,7 +214,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ## 4. Automate indexing and URL lifecycle
 
-*4 projects. Batch URL inspection, real-time Google Indexing API submission, and automated XML sitemap CRUD operations.*
+*3 projects. Batch URL inspection, real-time Google Indexing API submission, and automated sitemap discovery.*
 
 ### Batch URL inspection and indexing automation
 
@@ -228,7 +222,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 | Project | What it does |
 |---|---|
-| <a id="nalyk-gsccli"></a>[**nalyk/gsccli**](https://github.com/nalyk/gsccli) | Executes high-throughput batch URL inspection and Google Indexing API submission from a senior-grade CLI with MCP support. Features robust retry mechanisms and JSON streaming. |
+| <a id="nalyk-gsccli"></a>[**nalyk/gsccli**](https://github.com/nalyk/gsccli) | Provides a lightweight Node.js CLI and read-only MCP server for Search Analytics, single URL inspection, and SHA-256 query caching. |
 | <a id="ApollosWave-gsc-cli"></a>[**ApollosWave/gsc-cli**](https://github.com/ApollosWave/gsc-cli) | Provides a zero-gem CLI and AI agent engine integrating Search Console analytics with Google Indexing API publishing. Automates indexing requests and crawl verification. |
 
 ### Combined search analytics and Indexing API lifecycle
@@ -238,14 +232,6 @@ Official links: [Google Search Console](https://search.google.com/search-console
 | Project | What it does |
 |---|---|
 | <a id="mikusnuz-gsc-mcp"></a>[**mikusnuz/gsc-mcp**](https://github.com/mikusnuz/gsc-mcp) | Exposes 13 tools uniting Search Analytics with real-time Google Indexing API submission. Manages URL_UPDATED and URL_DELETED notifications directly from LLM workflows. |
-
-### Sitemap management and indexing feed inspection
-
-*1 projects. Submits XML sitemaps, inspects feed warnings, and monitors indexed URL ratios across verified properties.*
-
-| Project | What it does |
-|---|---|
-| <a id="bytefer-google-search-console-mcp"></a>[**bytefer/google-search-console-mcp**](https://github.com/bytefer/google-search-console-mcp) | Provides complete sitemaps CRUD operations and XML feed validation alongside search analytics. Monitors indexed URL ratios and sitemap crawl errors. |
 
 ---
 
@@ -277,7 +263,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 |---|---|
 | <a id="mario-hernandez-google-seo-mcp-claude-code"></a>[**mario-hernandez/google-seo-mcp-claude-code**](https://github.com/mario-hernandez/google-seo-mcp-claude-code) | Integrates Search Console tool definitions directly into Claude Code CLI interactive sessions. Enables natural language SEO diagnostics from developer terminal prompts. |
 | <a id="lionkiii-claude-seo-skills"></a>[**lionkiii/claude-seo-skills**](https://github.com/lionkiii/claude-seo-skills) | Provides 42 specialized SEO commands for Claude Code, integrating Search Console analytics with Ahrefs backlink data. Enables rapid site health inspections. |
-| <a id="N-O-P-E-nope-marketplace"></a>[**N-O-P-E/nope-marketplace**](https://github.com/N-O-P-E/nope-marketplace) | Automates Search Console and Google Cloud management through open-source Claude Code plugins. Exposes modular tools for headless agency workflows. |
+| <a id="N-O-P-E-nope-marketplace"></a>[**N-O-P-E/nope-marketplace**](https://github.com/N-O-P-E/nope-marketplace) | Automates Search Console navigation and audit reporting in Claude Code by driving a local desktop Google Chrome session via Chrome DevTools MCP. |
 
 ---
 
@@ -308,9 +294,9 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ---
 
-## 7. Bridge enterprise data lakes and hybrid extraction
+## 7. Bridge enterprise data lakes and cloud warehouses
 
-*3 projects. Enterprise BigQuery bulk export query engines, crawl DOM internal link mergers, and browser-automated rank extraction.*
+*1 projects. Enterprise BigQuery bulk export query engines connecting AI agents to raw daily partitioned Search Console event streams.*
 
 ### BigQuery bulk export data lake bridges
 
@@ -319,22 +305,6 @@ Official links: [Google Search Console](https://search.google.com/search-console
 | Project | What it does |
 |---|---|
 | <a id="Suganthan-Mohanadasan-Suganthans-BigQuery-MCP-Server"></a>[**Suganthan-Mohanadasan/Suganthans-BigQuery-MCP-Server**](https://github.com/Suganthan-Mohanadasan/Suganthans-BigQuery-MCP-Server) | Queries Google Cloud BigQuery GSC bulk export partitioned tables directly. Bypasses Search Console's 25,000-row API truncation and quota limits for enterprise analysis. |
-
-### Browser-automated rank tracking and SERP extraction
-
-*1 projects. Pairs Playwright browser automation for live rank checking with official Search Console API performance reporting.*
-
-| Project | What it does |
-|---|---|
-| <a id="itsjwill-seoctopus"></a>[**itsjwill/seoctopus**](https://github.com/itsjwill/seoctopus) | Combines official Search Console API metrics with Playwright browser automation for stealth SERP rank tracking. Detects ranking discrepancies between API data and live search results. |
-
-### Crawl DOM integration and internal link analysis
-
-*1 projects. Merges live HTML crawl graphs with Search Console query performance to evaluate internal link equity.*
-
-| Project | What it does |
-|---|---|
-| <a id="houtini-ai-seo-crawler-mcp"></a>[**houtini-ai/seo-crawler-mcp**](https://github.com/houtini-ai/seo-crawler-mcp) | Crawls site DOM architecture and merges internal linking graphs with Search Console query performance. Identifies orphaned pages and internal link equity bottlenecks. |
 
 ---
 
@@ -352,7 +322,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 | <a id="stroniarz-gsc-mcp"></a>[**stroniarz/gsc-mcp**](https://github.com/stroniarz/gsc-mcp) | Returns structured, filtered search performance data formatted to minimize LLM token usage. Employs Python FastMCP with strict input schema validation. |
 | <a id="sarahpark-google-search-console-mcp"></a>[**sarahpark/google-search-console-mcp**](https://github.com/sarahpark/google-search-console-mcp) | Provides safe, read-only Search Console query analysis with zero mutation endpoints. Compacts performance metrics to preserve context window capacity. |
 | <a id="AkashRajpurohit-gsc-mcp"></a>[**AkashRajpurohit/gsc-mcp**](https://github.com/AkashRajpurohit/gsc-mcp) | Implements a secure, local read-only TypeScript MCP server with strict Zod validation. Publishes to npm for zero-install execution via npx. |
-| <a id="iannuttall-seo"></a>[**iannuttall/seo**](https://github.com/iannuttall/seo) | Formats Search Console query and page metrics into ultra-compact Markdown output. Built by a senior engineer with clean zero-dependency architectural design. |
+| <a id="iannuttall-seo"></a>[**iannuttall/seo**](https://github.com/iannuttall/seo) | Formats Search Console query and page metrics into token-efficient Markdown tables with zero external runtime dependencies. |
 
 ### Comprehensive multi-endpoint Search Console API proxies
 
@@ -371,7 +341,7 @@ Official links: [Google Search Console](https://search.google.com/search-console
 
 ### FastMCP and standard search analytics wrappers
 
-*6 projects. Straightforward Python FastMCP and TypeScript implementations wrapping the core searchAnalytics.query endpoint.*
+*7 projects. Straightforward Python FastMCP and TypeScript implementations wrapping the core searchAnalytics.query endpoint.*
 
 | Project | What it does |
 |---|---|
@@ -379,17 +349,17 @@ Official links: [Google Search Console](https://search.google.com/search-console
 | <a id="every-app-open-seo"></a>[**every-app/open-seo**](https://github.com/every-app/open-seo) | Supplies open-source SEO tools wrapping Search Console API queries for AI coding assistants and automation workflows. |
 | <a id="crawlseo-crawlseo"></a>[**crawlseo/crawlseo**](https://github.com/crawlseo/crawlseo) | Wraps Google Search Console performance reporting within an open-source SEO analysis toolkit. |
 | <a id="avansaber-seo-monster"></a>[**avansaber/seo-monster**](https://github.com/avansaber/seo-monster) | Provides Python-based Search Console query tools with basic multi-dimension filtering and position tracking. |
-| <a id="popiliadam-platinum-seo-engine"></a>[**popiliadam/platinum-seo-engine**](https://github.com/popiliadam/platinum-seo-engine) | Provides Search Console analytics tools within an enterprise SEO automation engine with 538 git commits. |
+| <a id="popiliadam-platinum-seo-engine"></a>[**popiliadam/platinum-seo-engine**](https://github.com/popiliadam/platinum-seo-engine) | Orchestrates Search Console analytics within a schema-locked enterprise agent pipeline, appending weekly performance snapshots to immutable JSONL ledgers. |
 | <a id="Draivix-aidvertaiser"></a>[**Draivix/aidvertaiser**](https://github.com/Draivix/aidvertaiser) | Exposes Search Console tools alongside 180+ digital advertising tools within a large multi-platform MCP suite. |
+| <a id="bytefer-google-search-console-mcp"></a>[**bytefer/google-search-console-mcp**](https://github.com/bytefer/google-search-console-mcp) | Provides read-only Search Console query performance analytics and multi-URL batch inspection via a local OAuth 2.0 browser login flow. |
 
 ### Remote HTTP and cloud-hosted MCP servers
 
-*2 projects. Cloud-hosted MCP servers accessible over remote HTTP or Server-Sent Events (SSE) without local runtime dependencies.*
+*1 projects. Cloud-hosted MCP servers accessible over remote HTTP or Server-Sent Events (SSE) without local runtime dependencies.*
 
 | Project | What it does |
 |---|---|
 | <a id="mintmcp-google-search-console-mcp"></a>[**mintmcp/google-search-console-mcp**](https://github.com/mintmcp/google-search-console-mcp) | Exposes 15+ Search Console tools over a remote streamable HTTP SSE transport. Enables cloud-native agent integrations without local server hosting. |
-| <a id="HeyPuter-gsc-mcp"></a>[**HeyPuter/gsc-mcp**](https://github.com/HeyPuter/gsc-mcp) | Runs Search Console MCP tools directly inside the cloud-hosted Puter.com OS environment. Accessible remotely via secure webhooks. |
 
 ---
 
